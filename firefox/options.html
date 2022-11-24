@@ -3,41 +3,62 @@
     <head>
         <meta charset="utf-8" />
         <style>
-            ul {
+            .pachydermatologist {
+                font-family: sans-serif;
+                line-height: 150%;
+                width: 13rem;
+            }
+
+            .pachydermatologist h3 {
+                margin: 0.75rem 0;
+            }
+
+            .pachydermatologist ul {
                 list-style: none;
                 margin: 0;
                 padding: 0;
             }
 
-            .customerLabel {
+            .pachydermatologist .customerLabel {
                 display: inline-block;
                 width: 12rem;
             }
 
-            #customWidths, .row {
+            .pachydermatologist #customWidths, .row {
                 margin-top: 1rem;
             }
 
-            #success {
+            .pachydermatologist #success {
                 color: #155724;
                 background-color: #d4edda;
                 border: 1px solid #c3e6cb;
                 border-radius: 0.25rem;
+                margin-top: 1rem;
+                max-width: 100%;
                 padding: 0.75rem 1.25rem;
                 text-align: center;
             }
 
-            .reminder {
+            .pachydermatologist .reminder {
                 font-size: 0.8rem;
+            }
+
+            .pachydermatologist .submitRow {
+                text-align: center;
+            }
+
+            .pachydermatologist .submitRow button {
+                background-color: #f5b9ff;
+                border: 1px solid #a770b1;
+                border-radius: 0.25rem;
+                font-weight: bold;
+                font-size: 0.9rem;
+                padding: 0.25rem 0.75rem;
             }
         </style>
     </head>
 
-    <body>
-        <div id="success" style="display: none">
-            <div>Saved!</div>
-            <div class="reminder">Don't forget to reload the Mastodon page!</div>
-        </div>
+    <body class="pachydermatologist">
         <form>
             <h3>Layout</h3>
 
@@ -115,8 +136,13 @@
                 <input type="checkbox" name="centered" id="centered" value="1"> Centered
             </label>
 
-            <div class="row">
+            <div class="row submitRow">
                 <button type="submit">Save</button>
+            </div>
+
+            <div id="success" style="display: none">
+                <div>Saved!</div>
+                <div class="reminder">Don't forget to reload the Mastodon page!</div>
             </div>
         </form>
 
