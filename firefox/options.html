@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .customerLabel {
+                display: inline-block;
+                width: 12rem;
+            }
+
+            #customWidths, .row {
+                margin-top: 1rem;
+            }
+
+            #success {
+                color: #155724;
+                background-color: #d4edda;
+                border: 1px solid #c3e6cb;
+                border-radius: 0.25rem;
+                padding: 0.75rem 1.25rem;
+                text-align: center;
+            }
+
+            .reminder {
+                font-size: 0.8rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="success" style="display: none">
+            <div>Saved!</div>
+            <div class="reminder">Don't forget to reload the Mastodon page!</div>
+        </div>
+        <form>
+            <h3>Layout</h3>
+
+            <ul>
+                <li><label><input type="radio" name="layout" value="default"> Default</label></li>
+                <li><label><input type="radio" name="layout" value="even"> Even Columns</label></li>
+                <li><label><input type="radio" name="layout" value="home"> Wide Home</label></li>
+                <li>
+                    <label><input type="radio" name="layout" value="custom"> Custom</label>
+                    <table id="customWidths" style="display: none">
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Width</th>
+                                <th>Units</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Compose</td>
+                                <td><input type="text" name="composeWidth" id="composeWidth" size="3" type="number"></td>
+                                <td>
+                                    <select name="composeUnits" id="composeUnits">
+                                        <option value="px">px</option>
+                                        <option value="%">%</option>
+                                        <option value="rem">rem</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Home</td>
+                                <td><input type="text" name="homeWidth" id="homeWidth" size="3" type="number"></td>
+                                <td>
+                                    <select name="homeUnits" id="homeUnits">
+                                        <option value="px">px</option>
+                                        <option value="%">%</option>
+                                        <option value="rem">rem</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Notifications</td>
+                                <td><input type="text" name="notificationsWidth" id="notificationsWidth" size="3" type="number"></td>
+                                <td>
+                                    <select name="notificationsUnits" id="notificationsUnits">
+                                        <option value="px">px</option>
+                                        <option value="%">%</option>
+                                        <option value="rem">rem</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>End</td>
+                                <td><input type="text" name="endWidth" id="endWidth" size="3" type="number"></td>
+                                <td>
+                                    <select name="endUnits" id="endUnits">
+                                        <option value="px">px</option>
+                                        <option value="%">%</option>
+                                        <option value="rem">rem</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <table>
+                </li>
+            </ul>
+
+            <h3>Options</h3>
+
+            <label>
+                <input type="checkbox" name="centered" id="centered" value="1"> Centered
+            </label>
+
+            <div class="row">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+
+        <textarea style="display: none" id="default"></textarea>
+
+        <textarea style="display: none" id="even">
+            .column, .drawer {
+                flex: auto !important;
+                max-width: none !important;
+            }
+        </textarea>
+
+        <textarea style="display: none" id="home">
+            .column[aria-label="Home"] {
+                flex: 1 !important;
+                max-width: none !important;
+            }
+        </textarea>
+
+        <textarea style="display: none" id="custom"></textarea>
+
+        <script src="options.js"></script>
+    </body>
+</html>
