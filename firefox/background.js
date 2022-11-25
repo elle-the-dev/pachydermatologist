@@ -1,25 +1,6 @@
-/*
-browser.runtime.onMessage.addListener(function (message) {
-    console.log("RUNNING");
-    browser.storage.sync.get("css").then(function (data) {
-    console.log("LOADED");
-        console.log(data);
-        if (data.css) {
-            var style = document.createElement('style');
-            style.innerText = data.css;
-            //document.body.appendChild(style);
-            console.log(browser.tabs.insertCSS({ code: data.css }));
-        }
-    });
-});
-*/
-
-
 function handleMessage(request, sender, sendResponse) {
     //sendResponse({ response: "Response from background script" });
     browser.storage.sync.get("options").then(function (data) {
-        console.log(data);
-        //console.log(data);
         let css = data.options.css;
         if (data.options.layout === 'custom') {
             let composeWidth = data.options.composeWidth + data.options.composeUnits;
@@ -41,4 +22,3 @@ function handleMessage(request, sender, sendResponse) {
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
-//browser.browserAction.onClicked.addListener(handleClick);
