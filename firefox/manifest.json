@@ -3,7 +3,7 @@
     "description": "Customizations for the Mastodon advanced interface",
     "manifest_version": 2,
     "name": "Pachydermatologist",
-    "version": "1.0",
+    "version": "1.0.1",
 
     "permissions": ["storage", "activeTab", "tabs", "*://*/*"],
 
