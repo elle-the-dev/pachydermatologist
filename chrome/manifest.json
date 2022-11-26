@@ -5,7 +5,7 @@
     "name": "Pachydermatologist",
     "version": "1.0.1",
 
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": ["storage", "scripting"],
     "host_permissions": [
         "<all_urls>"
     ],
