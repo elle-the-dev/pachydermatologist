@@ -17,6 +17,8 @@ function handleMessage(request, sender, sendResponse) {
             css += ' .columns-area { margin: auto !important; }';
         }
 
+        css += ' .status__content { line-height: 146% !important; }';
+
         browser.tabs.insertCSS({ code: css });
     });
 }

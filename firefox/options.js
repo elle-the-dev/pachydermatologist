@@ -38,7 +38,21 @@ function saveOptions(e) {
 function restoreOptions() {
     function setCurrentChoice(data) {
         if (!data.options) {
-            return;
+            data = {
+                options: {
+                    layout: 'default',
+                    composeWidth: 340,
+                    homeWidth: 340,
+                    notificationsWidth: 340,
+                    endWidth: 340,
+                    composeUnits: 'px',
+                    homeUnits: 'px',
+                    notificationsUnits: 'px',
+                    endUnits: 'px',
+centered: 0,
+                    fontSize: '15px'
+                }
+            };
         }
 
         let inputs = document.querySelectorAll('input[name="layout"]');
